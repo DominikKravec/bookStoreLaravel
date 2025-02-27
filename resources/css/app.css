@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply bg-gray-700;
+}
+
+h1{
+    @apply text-5xl text-white my-8;
+}
+
+.btn{
+    @apply bg-gray-800 text-white p-3 rounded-xl text-lg;
+}
+
+.btn:hover{
+    @apply bg-gray-900;
+}
+
+.card{
+    @apply bg-gray-800 rounded-xl p-8 text-white text-xl mb-5;
+}
+
+.empty{
+    @apply border-l-4 border-red-500;
+}
