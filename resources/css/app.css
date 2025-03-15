@@ -19,9 +19,32 @@ h1{
 }
 
 .card{
-    @apply bg-gray-800 rounded-xl p-8 text-white text-xl mb-5;
+    @apply bg-gray-800 rounded-xl p-8 text-white text-xl mb-5 w-[80vw];
 }
 
 .empty{
     @apply border-l-4 border-red-500;
+}
+
+form{
+    @apply w-[50vw] grid p-8 bg-gray-800 rounded-xl h-full;
+}
+
+input{
+    @apply w-full p-3 text-lg text-white bg-gray-700 rounded-xl mb-5;
+}
+label{
+    @apply text-3xl text-white mb-5;
+}
+
+main{ 
+    @apply justify-center items-center grid;
+}
+
+select{
+    @apply w-full p-3 text-lg text-white bg-gray-700 rounded-xl mb-5;
+}
+
+input::placeholder{
+    @apply opacity-30;
 }

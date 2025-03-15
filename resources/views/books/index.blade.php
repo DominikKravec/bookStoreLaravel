@@ -2,7 +2,7 @@
 
     <h1>Available books</h1>
 
-    <section>
+    <section class=' justify-center items-center w-full grid'>
         @foreach ($books as $book)
             <x-card 
                 :title="$book->title"
