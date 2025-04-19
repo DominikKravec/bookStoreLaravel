@@ -23,19 +23,18 @@
             </div>
         </div>
         
+        @if (Auth::user()->role == 'admin')
+            <div class="flex-col mt-5 gap-5" >
+                <form action="{{route('books.delete', $book->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
+                    @csrf
+                    @method('DELETE')
 
-        <div class="flex-col mt-5 gap-5" >
-            <form action="{{route('books.delete', $book->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
-                @csrf
-                @method('DELETE')
-
-                <input type="submit" value="Delete book" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center"">
-            </form>
-            
-            <a href="{{route('books.edit', $book->id)}}" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center"">Edit book</a>
-            
-            
-        </div>
+                    <input type="submit" value="Delete book" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center"">
+                </form>
+                
+                <a href="{{route('books.edit', $book->id)}}" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center"">Edit book</a>
+            </div>
+        @endif
 
     </section>
 

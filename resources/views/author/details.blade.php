@@ -23,19 +23,19 @@
             @endforeach
 
         </section>
+        @if (Auth::user()->role == 'admin')
+            <div class="flex-col mt-5 gap-5 justify-center" >
+                <form action="{{route('author.delete', $author->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
+                    @csrf
+                    @method('DELETE')
 
-        <div class="flex-col mt-5 gap-5 justify-center" >
-            <form action="{{route('author.delete', $author->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
-                @csrf
-                @method('DELETE')
+                    <input type="submit" value="Delete author" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center">
+                </form>
 
-                <input type="submit" value="Delete author" class="text-white bg-red-500 text-2xl rounded-xl py-2 px-10 justify-center items-center">
-            </form>
-
-            <a href="{{route('author.edit', $author->id)}}" class="text-white bg-red-500 text-2xl w-[90vw] rounded-xl py-2 px-10 justify-center items-center">Edit author information</a>
-            
-        </div>
-
+                <a href="{{route('author.edit', $author->id)}}" class="text-white bg-red-500 text-2xl w-[90vw] rounded-xl py-2 px-10 justify-center items-center">Edit author information</a>
+                
+            </div>
+        @endif
     </section>
 
 </x-layout>
