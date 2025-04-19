@@ -48,3 +48,7 @@ select{
 input::placeholder{
     @apply opacity-30;
 }
+
+.book-details{
+    @apply justify-start w-[90vw] h-full text-white;
+}

@@ -5,6 +5,7 @@
     <section class=' justify-center items-center w-full grid'>
         @foreach ($books as $book)
             <x-card 
+                :id="$book->id"
                 :title="$book->title"
                 :author=" $book->author->fname . ' ' . $book->author->lname"
                 :price="$book->price"    

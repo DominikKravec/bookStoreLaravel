@@ -41,4 +41,12 @@ class BookController extends Controller
 
     }
 
+    public function details($id) {
+        
+        $book = Book::with('author')->find($id);
+
+        return view('books.details', ['book' => $book]);
+
+    }
+
 }

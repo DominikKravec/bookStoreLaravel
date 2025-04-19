@@ -10,10 +10,10 @@
 <body>
 
     <header class="flex justify-between items-center p-5">
-        <h2 class=" text-4xl text-red-400">Bookstore</h2>
+        <h2 class=" text-4xl text-red-400"><a href="{{route('books.index')}}">Bookstore</a></h2>
         <div class="flex gap-3">
             <a href="{{ route('books.create') }}" class="btn">Add book</a>
-            <a href="" class="btn">Add author</a>
+            <a href="{{ route('author.create') }}" class="btn">Add author</a>
         </div>
     </header>
 

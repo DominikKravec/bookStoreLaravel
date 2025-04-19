@@ -1,4 +1,5 @@
 @props([
+    'id',
     'title',
     'price',
     'genre',
@@ -14,6 +15,6 @@
     <span class="flex  gap-3 items-center">
         <span class="text-lg text-gray-600">{{$genre}}</span>
         <span>{{$price}}$</span>
-        <a href="" class="bg-red-400 text-white p-3 rounded-xl text-lg hover:bg-red-500">Details</a>
+        <a href="{{route('books.details', $id)}}" class="bg-red-400 text-white p-3 rounded-xl text-lg hover:bg-red-500">Details</a>
     </span>
 </div>
