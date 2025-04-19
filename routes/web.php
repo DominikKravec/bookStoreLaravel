@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,3 +24,8 @@ Route::delete('author.delete/{id}', [AuthorController::class, 'delete'])->name('
 Route::get('author/edit/{id}', [AuthorController::class, 'edit'])->name('author.edit');
 Route::post('author.update', [AuthorController::class, 'update'])->name('author.update');
 
+Route::get('auth/register', [AuthController::class, 'showRegister'])->name('auth.register');
+Route::post('auth/register', [AuthController::class, 'register'])->name('auth.register');
+Route::get('auth/login', [AuthController::class, 'showLogin'])->name('auth.login');
+Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');

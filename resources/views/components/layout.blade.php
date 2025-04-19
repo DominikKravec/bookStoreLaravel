@@ -11,9 +11,24 @@
 
     <header class="flex justify-between items-center p-5">
         <h2 class=" text-4xl text-red-400"><a href="{{route('books.index')}}">Bookstore</a></h2>
-        <div class="flex gap-3">
-            <a href="{{ route('books.create') }}" class="btn">Add book</a>
-            <a href="{{ route('author.create') }}" class="btn">Add author</a>
+        <div class="flex items-center gap-10">
+            @auth
+                <h2 class=" text-2xl text-red-400">Welcome {{ Auth::user()->name }}</h2>
+            @endauth
+            <nav class="flex gap-3">
+                @guest
+                    <a href="{{ route("auth.login") }}" class="btn">Login</a>
+                @endguest
+    
+                @auth
+                    <a href="{{ route('books.create') }}" class="btn">Add book</a>
+                    <a href="{{ route('author.create') }}" class="btn">Add author</a>
+                    <form action="{{ route('auth.logout') }}" method="post" class="bg-transparent p-0 w-20">
+                        @csrf
+                        <button type="submit" class="btn">Logout</button>
+                    </form>
+                @endauth
+            </nav>
         </div>
     </header>
 

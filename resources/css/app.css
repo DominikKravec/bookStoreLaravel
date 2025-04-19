@@ -14,8 +14,17 @@ h1{
     @apply bg-gray-800 text-white p-3 rounded-xl text-lg;
 }
 
+.btn.red{
+    @apply bg-red-500 text-white p-3 rounded-xl text-lg;
+}
+
+
 .btn:hover{
     @apply bg-gray-900;
+}
+
+.btn.red:hover{
+    opacity: 0.8;
 }
 
 .card{
