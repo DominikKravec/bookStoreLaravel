@@ -50,5 +50,5 @@ input::placeholder{
 }
 
 .book-details{
-    @apply justify-start w-[90vw] h-full text-white;
+    @apply justify-start w-[90vw] h-full text-white ;
 }
