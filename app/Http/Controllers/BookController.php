@@ -49,4 +49,36 @@ class BookController extends Controller
 
     }
 
+    public function delete($id){
+        $book = Book::findOrFail($id);
+        $book->delete();
+
+        return redirect()->route('books.index');
+    }
+
+    public function edit($id){
+        $book = Book::with('author')->find($id);
+
+        $authors = Author::all();
+
+        $genres = ['Fiction', 'Non Fiction', 'Biography', 'History', 'Science Fiction'];
+
+        return view('books.create', ['book' => $book, 'authors' => $authors, 'genres' => $genres]);
+    }
+
+    public function update(Request $request){
+        
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'storedAmount' => 'required|integer',
+            'author_id' => 'required|integer|exists:authors,id'
+        ]);
+        
+        $book = Book::findOrFail($request->id);
+        $book->update($validated);
+
+        return redirect(route('books.details', $book->id));
+    }
 }

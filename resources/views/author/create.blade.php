@@ -1,6 +1,6 @@
 <x-layout>
 
-    <form action="{{route('author.store')}}" method="post">
+    <form action="{{isset($author) ? route('author.update') : route('author.store')}}" method="post">
         @csrf
 
         @if($errors->any())
@@ -12,15 +12,19 @@
                 @endforeach
             </ul>
         @endif
-        
+
+        @if(isset($author))
+            <input type="hidden" name="id" value="{{$author->id}}">
+        @endif
+
         <label>First name</label>
-        <input type="text" name="fname" placeholder="John">
+        <input type="text" name="fname" placeholder="John" value="{{isset($author) ? $author->fname : ''}}">
         <label>Last name</label>
-        <input type="text" name="lname" placeholder="Doe">
+        <input type="text" name="lname" placeholder="Doe" value="{{isset($author) ? $author->lname : ''}}">
         <label>Country</label>
-        <input type="text" name="country" placeholder="USA">
+        <input type="text" name="country" placeholder="USA" value="{{isset($author) ? $author->country : ''}}">
         
-        <input type="submit" value="Add author" class=" bg-red-400 text-gray-900 font-bold hover:opacity-60">
+        <input type="submit" value="{{isset($author) ? 'Update author' : 'Add author'}}" class=" bg-red-400 text-gray-900 font-bold hover:opacity-60">
 
     </form>
 

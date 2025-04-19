@@ -18,6 +18,20 @@
             <div class="mb-10">Country: {{$book->author->country}}</div>
             <a href="{{route('author.details', $book->author->id)}}" class="bg-red-500 text-white p-3 rounded-xl text-lg hover:opacity-80">Authors page</a>
         </div>
+
+        <div class="flex mt-5 gap-5" >
+            <form action="{{route('books.delete', $book->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0">
+                @csrf
+                @method('DELETE')
+
+                <input type="submit" value="Delete book" class="btn">
+            </form>
+            
+            <a href="{{route('books.edit', $book->id)}}" class="btn w-[50%] justify-center items-center">Edit book</a>
+            
+            
+        </div>
+
     </section>
 
 </x-layout>

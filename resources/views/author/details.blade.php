@@ -24,7 +24,17 @@
 
         </section>
 
+        <div class="flex mt-5 gap-5" >
+            <form action="{{route('author.delete', $author->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0">
+                @csrf
+                @method('DELETE')
 
+                <input type="submit" value="Delete author" class="btn">
+            </form>
+
+            <a href="{{route('author.edit', $author->id)}}" class="btn w-[50%] justify-center items-center">Edit author information</a>
+            
+        </div>
 
     </section>
 
