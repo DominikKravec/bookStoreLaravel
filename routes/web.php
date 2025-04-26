@@ -16,6 +16,7 @@ Route::get('books/details/{id}', [BookController::class, 'details'])->name('book
 Route::delete('book.delete/{id}', [BookController::class, 'delete'])->name('books.delete');
 Route::get('books/edit/{id}', [BookController::class, 'edit'])->name('books.edit');
 Route::post('books.update', [BookController::class, 'update'])->name('books.update');
+Route::post('books.order', [BookController::class,  'order'])->name("books.order");
 
 Route::get('author/details/{id}', [AuthorController::class, 'details'])->name('author.details');
 Route::get('author/create', [AuthorController::class, 'create'])->name('author.create');

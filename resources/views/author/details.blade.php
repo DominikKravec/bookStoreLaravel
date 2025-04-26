@@ -23,7 +23,7 @@
             @endforeach
 
         </section>
-        @if (Auth::user()->role == 'admin')
+        @if (Auth::user() && Auth::user()->role == 'admin')
             <div class="flex-col mt-5 gap-5 justify-center" >
                 <form action="{{route('author.delete', $author->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
                     @csrf

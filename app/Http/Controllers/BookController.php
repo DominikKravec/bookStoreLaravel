@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Book;
 use App\Models\Author;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class BookController extends Controller
 {
@@ -80,5 +82,18 @@ class BookController extends Controller
         $book->update($validated);
 
         return redirect(route('books.details', $book->id));
+    }
+
+    public function order(Request $request){
+
+        if(Auth::user()){
+            $book = Book::findOrFail($request->id);
+            $book->update(["storedAmount" => $book->storedAmount - 1]);
+    
+            return redirect(route('books.details', $book->id));
+        }else{
+            return redirect()->route('auth.login');
+        }
+
     }
 }

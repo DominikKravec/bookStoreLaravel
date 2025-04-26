@@ -21,7 +21,7 @@
                 @endguest
     
                 @auth
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user() && Auth::user()->role == 'admin')
                         <a href="{{ route('books.create') }}" class="btn">Add book</a>
                         <a href="{{ route('author.create') }}" class="btn">Add author</a> 
                     @endif

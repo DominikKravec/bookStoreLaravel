@@ -22,8 +22,16 @@
                 <a href="{{route('author.details', $book->author->id)}}" class="bg-red-500 text-white p-3 rounded-xl text-lg hover:opacity-80">Authors page</a>
             </div>
         </div>
+
+        <div>
+            <form action="{{route("books.order")}}" method="POST" class="bg-transparent">
+                @csrf
+                <input type="hidden" name="id" id="" value="{{$book->id}}">
+                <button type="submit" class="btn red">Order book</button>
+            </form>
+        </div>
         
-        @if (Auth::user()->role == 'admin')
+        @if (Auth::user() && Auth::user()->role == 'admin')
             <div class="flex-col mt-5 gap-5" >
                 <form action="{{route('books.delete', $book->id)}}" method="POST" class=" bg-transparent p-0 py-0 mb-0 w-[10vw]">
                     @csrf
